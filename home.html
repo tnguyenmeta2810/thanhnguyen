@@ -7,8 +7,237 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <style>
-    /* Giữ nguyên toàn bộ CSS như bạn đã có */
-    /* (Không dán lại ở đây vì nội dung dài, nếu cần mình có thể gửi bản đầy đủ CSS riêng) */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f3f4f6;
+      padding: 20px;
+      color: #1a202c;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      main {
+        flex-direction: row;
+      }
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      flex: 1;
+    }
+
+    .profile {
+      width: 120px;
+      height: 120px;
+      border-radius: 9999px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tick-icon {
+      width: 20px;
+      height: 20px;
+      fill: #3b82f6;
+    }
+
+    .handle {
+      color: #6b7280;
+      margin: 0.5rem 0;
+    }
+
+    .info-list {
+      list-style: none;
+      margin-top: 1rem;
+      text-align: left;
+    }
+
+    .info-list li {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .qr-button, .music-button {
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .qr-button:hover, .music-button:hover {
+      background-color: #2563eb;
+    }
+
+    .right-section {
+      flex: 2;
+      background-color: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .section-title span {
+      color: #3b82f6;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .info {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      background: #f9fafb;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+    }
+
+    .info img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e5e7eb;
+      margin: 2rem 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .about-item {
+      position: relative;
+      padding: 1rem;
+      background-color: #f9fafb;
+      border-radius: 1rem;
+      text-align: left;
+    }
+
+    .about-item img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .about-item-text p:first-child {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .quote-mark {
+      position: absolute;
+      font-size: 4rem;
+      color: #e5e7eb;
+      top: -10px;
+      right: 15px;
+    }
+
+    .qr-modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .qr-modal.show {
+      display: block;
+    }
+
+    .qr-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 1rem;
+      width: 300px;
+      text-align: center;
+    }
+
+    .qr-content img {
+      width: 100%;
+    }
+
+    .qr-close {
+      float: right;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .toast {
+      visibility: hidden;
+      min-width: 200px;
+      background-color: #3b82f6;
+      color: white;
+      text-align: center;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      position: fixed;
+      z-index: 1;
+      right: 30px;
+      bottom: 30px;
+      font-size: 0.875rem;
+    }
+
+    .toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @keyframes fadein {
+      from { bottom: 0; opacity: 0; }
+      to { bottom: 30px; opacity: 1; }
+    }
+
+    @keyframes fadeout {
+      from { bottom: 30px; opacity: 1; }
+      to { bottom: 0; opacity: 0; }
+    }
   </style>
 </head>
 <body>
