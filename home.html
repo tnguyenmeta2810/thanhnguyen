@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,239 +11,259 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Inter', sans-serif;
     }
-
     body {
-      background-color: #f3f4f6;
-      padding: 20px;
-      color: #1a202c;
+      font-family: 'Inter', sans-serif;
+      background-color: #e8eaef;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 80px 16px;
     }
-
     main {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 40px;
+      max-width: 96rem;
+      width: 100%;
     }
-
     @media (min-width: 768px) {
       main {
         flex-direction: row;
       }
     }
-
     .card {
       background-color: white;
       border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      flex: 1;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 18rem;
+      width: 100%;
     }
-
-    .profile {
-      width: 120px;
-      height: 120px;
-      border-radius: 9999px;
+    .card img.profile {
+      width: 112px;
+      height: 112px;
       object-fit: cover;
-      margin-bottom: 1rem;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
     .name {
-      font-size: 1.5rem;
+      margin-top: 16px;
       font-weight: 600;
+      color: #2d3748;
+      text-align: center;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tick-icon {
+      width: 16px;
+      height: 16px;
+      fill: #3b82f6;
+    }
+    .handle {
+      margin-top: 4px;
+      font-size: 0.875rem;
+      color: #718096;
+      background-color: #e2e8f0;
+      border-radius: 9999px;
+      padding: 4px 12px;
+    }
+    .info-list {
+      margin-top: 24px;
+      width: 100%;
+      color: #4a5568;
+      font-size: 0.875rem;
+    }
+    .info-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .qr-button, .music-button {
+      margin-top: 32px;
+      background-color: #3b82f6;
+      color: white;
+      font-weight: 500;
+      border-radius: 9999px;
+      padding: 12px 32px;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .qr-button:hover, .music-button:hover {
+      background-color: #2563eb;
+      transform: scale(1.05);
+    }
+    .right-section {
+      background-color: #f6fbfb;
+      border-radius: 1rem;
+      padding: 24px;
+      width: 100%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .section-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #374151;
+      margin-bottom: 12px;
+    }
+    .section-title span {
+      color: #1d4ed8;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 640px) {
+      .info-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .info {
+      background-color: white;
+      border-radius: 0.5rem;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    }
+    .info img {
+      width: 48px;
+      height: 48px;
+      border-radius: 0.5rem;
+    }
+    .info p {
+      font-size: 0.75rem;
+      color: #6b7280;
+      line-height: 1.4;
+    }
+    .info a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .divider {
+      border-top: 1px solid #e6f0f0;
+      margin: 32px 0;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    @media (min-width: 640px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .about-item {
+      display: flex;
+      gap: 12px;
+    }
+    .about-item img {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+    }
+    .about-item-text p:first-child {
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .about-item-text p:last-child {
+      font-size: 0.875rem;
+      color: #9ca3af;
+      max-width: 20rem;
+    }
+    .quote-mark {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1d4ed8;
+      line-height: 1;
+      user-select: none;
+      margin-left: auto;
+      margin-right: 0;
+    }
+    .qr-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 0.5rem;
+      z-index: 9999;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
-
-    .tick-icon {
-      width: 20px;
-      height: 20px;
-      fill: #3b82f6;
-    }
-
-    .handle {
-      color: #6b7280;
-      margin: 0.5rem 0;
-    }
-
-    .info-list {
-      list-style: none;
-      margin-top: 1rem;
-      text-align: left;
-    }
-
-    .info-list li {
-      margin: 0.5rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .qr-button, .music-button {
-      background-color: #3b82f6;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      margin-top: 1rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-
-    .qr-button:hover, .music-button:hover {
-      background-color: #2563eb;
-    }
-
-    .right-section {
-      flex: 2;
-      background-color: white;
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .section-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .section-title span {
-      color: #3b82f6;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
-    .info {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-      background: #f9fafb;
-      border-radius: 0.5rem;
-      padding: 0.5rem;
-    }
-
-    .info img {
-      width: 40px;
-      height: 40px;
-    }
-
-    .divider {
-      height: 1px;
-      background: #e5e7eb;
-      margin: 2rem 0;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
-    .about-item {
-      position: relative;
-      padding: 1rem;
-      background-color: #f9fafb;
-      border-radius: 1rem;
-      text-align: left;
-    }
-
-    .about-item img {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 1rem;
-    }
-
-    .about-item-text p:first-child {
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .quote-mark {
-      position: absolute;
-      font-size: 4rem;
-      color: #e5e7eb;
-      top: -10px;
-      right: 15px;
-    }
-
-    .qr-modal {
-      display: none;
-      position: fixed;
-      z-index: 10;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
     .qr-modal.show {
-      display: block;
+      visibility: visible;
+      opacity: 1;
     }
-
     .qr-content {
       background-color: white;
-      margin: 10% auto;
-      padding: 20px;
+      padding: 24px;
       border-radius: 1rem;
-      width: 300px;
+      max-width: 90vw;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      position: relative;
       text-align: center;
     }
-
     .qr-content img {
+      max-width: 300px;
       width: 100%;
+      border-radius: 0.75rem;
     }
-
     .qr-close {
-      float: right;
+      position: absolute;
+      top: 12px;
+      right: 16px;
       font-size: 1.5rem;
+      color: #ef4444;
       cursor: pointer;
+      transition: transform 0.2s ease;
     }
-
+    .qr-close:hover {
+      transform: scale(1.2);
+    }
     .toast {
-      visibility: hidden;
-      min-width: 200px;
-      background-color: #3b82f6;
-      color: white;
-      text-align: center;
-      border-radius: 0.5rem;
-      padding: 1rem;
       position: fixed;
-      z-index: 1;
-      right: 30px;
-      bottom: 30px;
-      font-size: 0.875rem;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #1d4ed8;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      z-index: 10000;
     }
-
     .toast.show {
+      opacity: 1;
       visibility: visible;
-      animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    }
-
-    @keyframes fadein {
-      from { bottom: 0; opacity: 0; }
-      to { bottom: 30px; opacity: 1; }
-    }
-
-    @keyframes fadeout {
-      from { bottom: 30px; opacity: 1; }
-      to { bottom: 0; opacity: 0; }
     }
   </style>
 </head>
 <body>
   <main>
     <section class="card">
-      <img class="profile" src="https://files.catbox.moe/n92sb6.jpg" alt="Ảnh đại diện" />
+      <img class="profile" src="https://files.catbox.moe/n92sb6.jpg" alt="Profile image" />
       <h2 class="name">Thanh Nguyên 
         <svg class="tick-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 0C5.372 0 0 5.372 0 12c0 6.627 5.372 12 12 12s12-5.373 12-12C24 5.372 18.628 0 12 0zm-1.2 17.4L5.4 11.4l1.8-1.8 3.6 3.6 7.2-7.2 1.8 1.8-9 9z"/>
@@ -255,18 +275,18 @@
         <li><i class="fas fa-check text-blue-700"></i> Zalo: Thanh Nguyên</li>
       </ul>
       <button class="qr-button" onclick="document.querySelector('.qr-modal').classList.add('show')">Quét Mã QR-Code</button>
-      <button class="music-button" onclick="playMusic()">Phát Nhạc Nền</button>
+      <button class="music-button" onclick="playMusic()">Phát Nhạc 🎵</button>
     </section>
 
     <section class="right-section">
       <div>
-        <h3 class="section-title"><span>Thông tin</span> liên hệ</h3>
+        <h3 class="section-title"><span>Contact</span> Information</h3>
         <div class="info-grid">
           <div class="info">
             <img src="https://files.catbox.moe/bc9vin.svg" alt="Facebook logo">
             <div>
               <p><strong style="color:#2d3748">Facebook</strong></p>
-              <p><a href="https://www.facebook.com/thanhnguyentrummeta" target="_blank" rel="noopener noreferrer">Thanh Nguyên</a></p>
+              <p><a href="https://www.facebook.com/thanhnguyentrummeta" target="_blank" rel="noopener noreferrer">Thanh Nguyên ☔</a></p>
             </div>
           </div>
           <div class="info">
@@ -280,7 +300,7 @@
             <img src="https://files.catbox.moe/4soap2.png" alt="Gmail logo">
             <div>
               <p><strong style="color:#2d3748">Gmail</strong></p>
-              <p><a href="mailto:zyroha3468@gmail.com">zyroha3468@gmail.com</a></p>
+              <p><a href="mailto:zyroha3468@gmail.com">Thanh Nguyên Nekk</a></p>
             </div>
           </div>
           <div class="info">
@@ -294,23 +314,23 @@
       </div>
       <div class="divider"></div>
       <div>
-        <h3 class="section-title"><span>Về tôi</span></h3>
+        <h3 class="section-title"><span>About Me</span></h3>
         <div class="about-grid">
           <div class="about-item">
             <img src="https://files.catbox.moe/vt6ew4.gif" alt="Two cartoon cats">
             <div class="about-item-text">
-              <p>Tự Thành</p>
+              <p>Thả Thính</p>
               <p>Anh không hoàn hảo, nhưng anh là duy nhất</p>
             </div>
-            <div class="quote-mark">“</div>
+            <div class="quote-mark">•</div>
           </div>
           <div class="about-item">
             <img src="https://files.catbox.moe/tgu4ee.png" alt="Cartoon frog">
             <div class="about-item-text">
               <p>Châm Ngôn</p>
-              <p>Từ một cậu bé hư hỏng, thất học nhưng lại suốt ngày mơ ước muốn trở thành lập trình viên</p>
+              <p>Từ 1 cậu bé hư hỏng, thất học nhưng lại suốt ngày mơ ước muốn trở thành lập trình viên</p>
             </div>
-            <div class="quote-mark">“</div>
+            <div class="quote-mark">•</div>
           </div>
         </div>
       </div>
@@ -329,7 +349,7 @@
     Trình duyệt của bạn không hỗ trợ thẻ âm thanh.
   </audio>
 
-  <div id="toast" class="toast">Đã phát nhạc nền</div>
+  <div id="toast" class="toast">🎶 Đang phát nhạc nền</div>
 
   <script>
     function playMusic() {
