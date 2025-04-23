@@ -244,15 +244,17 @@
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #1d4ed8;
+      background-color: #1aff00; /* Adjusted to match the image */
       color: white;
-      padding: 12px 24px;
-      border-radius: 9999px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      padding: 10px 20px; /* Adjusted for compactness */
+      border-radius: 8px; /* Less rounded corners */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Softer shadow */
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.4s ease, visibility 0.4s ease;
       z-index: 10000;
+      font-size: 0.9rem; /* Smaller font size */
+      font-weight: 500; /* Medium font weight */
     }
     .toast.show {
       opacity: 1;
@@ -317,7 +319,7 @@
         <h3 class="section-title"><span>About Me</span></h3>
         <div class="about-grid">
           <div class="about-item">
-            <img src="https://files.catbox.moe/vt6ew4.gif" alt="Two cartoon cats">
+            <img src="https://files.catbox.moe/uda9f2.png" alt="Two cartoon cats">
             <div class="about-item-text">
               <p>Thả Thính</p>
               <p>Anh không hoàn hảo, nhưng anh là duy nhất</p>
@@ -339,7 +341,7 @@
 
   <div class="qr-modal">
     <div class="qr-content">
-      <span class="qr-close" onclick="document.querySelector('.qr-modal').classList.remove('show')">&times;</span>
+      <span class="qr-close" onclick="document.querySelector('.qr-modal').classList.remove('show')">×</span>
       <img src="https://files.catbox.moe/tymfnd.jpg" alt="QR Code">
     </div>
   </div>
